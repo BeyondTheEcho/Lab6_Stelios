@@ -1,8 +1,9 @@
 #include "CApp.h"
+#include "AssetManager.h"
 
 bool CApp::OnInit()
 {
-	window = SDL_CreateWindow("Crossing The Road And River",
+	window = SDL_CreateWindow("Frogger - Lab 6 - Stelios",
 		SDL_WINDOWPOS_UNDEFINED,
 		SDL_WINDOWPOS_UNDEFINED,
 		WINDOW_WIDTH, WINDOW_HEIGHT,
@@ -11,7 +12,7 @@ bool CApp::OnInit()
 	//if window does not work, escapes
 	if (!window)
 	{
-		return -1;
+		return false;
 	}
 
 	renderer = SDL_CreateRenderer(window, -1, 0);
@@ -19,19 +20,17 @@ bool CApp::OnInit()
 	//if renderer does not work, escapes
 	if (!renderer)
 	{
-		return -1;
+		return false;
 	}
 
-
-	if (bg.LoadSprite("BG.bmp", renderer, bg.texture) < 0)
+	if (bg.LoadSprite(AssetManager::FormatFilePath(AssetManager::background).c_str(), renderer, bg.texture) < 0)
 	{
-		return -1;
+		return false;
 	}
 
-
-	if (player.LoadSprite("monke.bmp", renderer, player.texture) < 0)
+	if (!player.LoadFrogSprites(renderer))
 	{
-		return -1;
+		return false;
 	}
 
 	return true;

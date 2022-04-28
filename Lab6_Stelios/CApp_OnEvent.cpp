@@ -27,7 +27,4 @@ void CApp::OnEvent(SDL_Event* event)
 			break;
 		}
 	}
-	
-
-
 }

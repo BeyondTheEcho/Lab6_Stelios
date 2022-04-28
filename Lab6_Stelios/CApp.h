@@ -6,44 +6,35 @@
 #include "SDL_ttf.h"
 
 #include "Player.h"
-#include "Background.h"
+#include "Sprite.h"
 
 using namespace std;
 
 #define WINDOW_WIDTH	1280
 #define WINDOW_HEIGHT	720
-
 #define NUM_SPRITES		1
+
+
 
 class CApp
 {
 public:
-
-	bool OnInit();
-	void OnEvent(SDL_Event* event);
-	void OnLoop();
-	
-	void OnRender();
-
-	//challenge
-	
-
-	void OnCleanup();
-
 	int OnExecute();
 
+	bool OnInit();
+
+	void OnEvent(SDL_Event* event);
+	void OnLoop();
+	void OnRender();
+	void OnCleanup();
 
 private:
 	bool done = false;
 
-	//SDL_Rect backgroundBlack = { 0, 0, WINDOW_WIDTH, WINDOW_HEIGHT };
-	
 	Player player;
-	
 
 	SDL_Window* window;
 	SDL_Renderer* renderer;
-	
-	Background bg;
 
+	Sprite bg;
 };
