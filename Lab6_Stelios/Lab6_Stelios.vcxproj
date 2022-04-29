@@ -140,6 +140,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AssetManager.cpp" />
+    <ClCompile Include="Car.cpp" />
+    <ClCompile Include="ObjectManager.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="CApp_Main.cpp" />
     <ClCompile Include="CApp_OnCleanup.cpp" />
@@ -151,6 +153,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AssetManager.h" />
+    <ClInclude Include="Car.h" />
+    <ClInclude Include="ObjectManager.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="CApp.h" />
     <ClInclude Include="Player.h" />
