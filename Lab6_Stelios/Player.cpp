@@ -11,7 +11,7 @@ void Player::CheckBounds()
 	}
 	if (playerPosition.x > WINDOW_WIDTH - 1)
 	{
-		playerPosition.x = WINDOW_WIDTH - xPos;
+		playerPosition.x = WINDOW_WIDTH - xSize;
 	}
 	if (playerPosition.y < 0)
 	{
@@ -19,34 +19,34 @@ void Player::CheckBounds()
 	}
 	if (playerPosition.y > WINDOW_HEIGHT - 1)
 	{
-		playerPosition.y = WINDOW_HEIGHT - yPos;
+		playerPosition.y = WINDOW_HEIGHT - ySize;
 	}
 }
 
 void Player::MoveLeft()
 {
-	playerPosition.x -= xPos;
+	playerPosition.x -= xSize;
 	dir = LEFT;
 	CheckBounds();
 }
 
 void Player::MoveRight()
 {
-	playerPosition.x += xPos;
+	playerPosition.x += xSize;
 	dir = RIGHT;
 	CheckBounds();
 }
 
 void Player::MoveUp()
 {
-	playerPosition.y -= yPos;
+	playerPosition.y -= ySize;
 	dir = UP;
 	CheckBounds();
 }
 
 void Player::MoveDown()
 {
-	playerPosition.y += yPos;
+	playerPosition.y += ySize;
 	dir = DOWN;
 	CheckBounds();
 }

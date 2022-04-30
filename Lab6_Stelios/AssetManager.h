@@ -17,6 +17,10 @@ public:
 	static string car_Green;
 	static string car_Yellow;
 
+	static string log_Small;
+	static string log_Medium;
+	static string log_Large;
+
 	static string background;
 
 	static string FormatFilePath(string asset);

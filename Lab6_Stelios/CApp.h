@@ -7,6 +7,8 @@
 
 #include "Player.h"
 #include "Sprite.h"
+#include "ObjectManager.h"
+#include "AssetManager.h"
 
 using namespace std;
 
@@ -32,6 +34,8 @@ private:
 	bool done = false;
 
 	Player player;
+
+	ObjectManager obj;
 
 	SDL_Window* window;
 	SDL_Renderer* renderer;

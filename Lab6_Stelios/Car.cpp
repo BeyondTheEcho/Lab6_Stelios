@@ -1,6 +1,15 @@
 #include "Car.h"
 
-#include "AssetManager.h"
+Car::Car(int* totalCars)
+{
+	numCarsSpawned = totalCars;
+
+	//Randomizes car color on instantiation
+	RandomizeCarColor();
+
+	//Places cars appropriately as they are spawned
+	PlaceCars();
+}
 
 bool Car::LoadCarSprites(SDL_Renderer* renderer)
 {
@@ -11,7 +20,7 @@ bool Car::LoadCarSprites(SDL_Renderer* renderer)
 	return true;
 }
 
-Car::Car()
+void Car::RandomizeCarColor()
 {
 	colors = ColorRotation;
 	int temp = ColorRotation;
@@ -20,9 +29,64 @@ Car::Car()
 	ColorRotation = (Colors)temp;
 }
 
+void Car::PlaceCars()
+{
+	
+	if (*numCarsSpawned < 3)
+	{
+		//Places the first 3 cars at the standard y pos with x offset
+		for (int i = 0; i < *numCarsSpawned; i++)
+		{
+			CarPosition.x += xOffset;
+		}
+
+		xMovement = 2;
+	}
+	else if (*numCarsSpawned < 6)
+	{
+		//Places the next 3 cars at the modified ypos with the x offset
+		CarPosition.y -= yOffset;
+
+		for (int i = 3; i < *numCarsSpawned; i++)
+		{
+			CarPosition.x += xOffset;
+		}
+
+		xMovement = 4;
+
+	}
+	else if (*numCarsSpawned < 9)
+	{
+		//Places the final 3 cars at the modified ypos with the x offset
+		CarPosition.y -= yOffset * 2;
+
+		for (int i = 6; i < *numCarsSpawned; i++)
+		{
+			CarPosition.x += xOffset;
+		}
+
+		xMovement = 3;
+	}
+
+	//Increases the count of currently spawned cars
+	*numCarsSpawned = *numCarsSpawned + 1;
+}
+
+void Car::Move()
+{
+	CarPosition.x += xMovement;
+}
+
 void Car::Render(SDL_Renderer* renderer)
 {
 	SDL_Texture* thisTexture;
+
+	if (!hasLoadedSprites)
+	{
+		LoadCarSprites(renderer);
+
+		hasLoadedSprites = true;
+	}
 
 	switch (colors)
 	{

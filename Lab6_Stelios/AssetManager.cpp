@@ -13,6 +13,10 @@ string AssetManager::car_Blue = "Car_Blue";
 string AssetManager::car_Green = "Car_Green";
 string AssetManager::car_Yellow = "Car_Yellow";
 
+string AssetManager::log_Small = "Log_Small";
+string AssetManager::log_Medium = "Log_Medium";
+string AssetManager::log_Large = "Log_Large";
+
 string AssetManager::FormatFilePath(string asset)
 {
 	string filePath = assetsFilePath;

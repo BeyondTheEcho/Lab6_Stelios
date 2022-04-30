@@ -1,5 +1,4 @@
 #include "CApp.h"
-#include "AssetManager.h"
 
 bool CApp::OnInit()
 {

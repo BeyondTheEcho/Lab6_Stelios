@@ -8,9 +8,13 @@
 class Player: public Sprite
 {
 protected:
-	
-	int xPos = 64;
-	int yPos = 72;
+	//Sprite Size Vars
+	int xSize = 60;
+	int ySize = 50;
+
+	//Frog Position Vars
+	int xPos = 0;
+	int yPos = 0;
 	
 	void CheckBounds();
 public:
@@ -31,7 +35,7 @@ public:
 
 	void Render(SDL_Renderer* renderer) override;
 
-	SDL_Rect playerPosition = { 0, 0, xPos, yPos };
+	SDL_Rect playerPosition = { xPos, yPos, xSize, ySize };
 
 	enum Direction
 	{
