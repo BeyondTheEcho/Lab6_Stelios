@@ -6,8 +6,29 @@ bool MusicPlayer::loadMedia()
     bool success = true;
 
     //Load music
-    gameMusic = Mix_LoadMUS(musicPath.c_str());
-    if (gameMusic == NULL)
+    gameMusic1 = Mix_LoadMUS(track1Path.c_str());
+    if (gameMusic1 == NULL)
+    {
+        printf("Failed to load game music! SDL_mixer Error: %s\n", Mix_GetError());
+        success = false;
+    }
+
+    gameMusic2 = Mix_LoadMUS(track2Path.c_str());
+    if (gameMusic2 == NULL)
+    {
+        printf("Failed to load game music! SDL_mixer Error: %s\n", Mix_GetError());
+        success = false;
+    }
+
+    gameMusic3 = Mix_LoadMUS(track3Path.c_str());
+    if (gameMusic3 == NULL)
+    {
+        printf("Failed to load game music! SDL_mixer Error: %s\n", Mix_GetError());
+        success = false;
+    }
+
+    gameMusic4 = Mix_LoadMUS(track4Path.c_str());
+    if (gameMusic4 == NULL)
     {
         printf("Failed to load game music! SDL_mixer Error: %s\n", Mix_GetError());
         success = false;
@@ -42,7 +63,29 @@ bool MusicPlayer::loadMedia()
 
 void MusicPlayer::PlayMusic()
 {
-    Mix_PlayMusic(gameMusic, -1);
+    if (Mix_PlayingMusic() == 0)
+    {
+        if (currentTrack == 1)
+        {
+            Mix_PlayMusic(gameMusic1, 1);
+            currentTrack++;
+        }
+        else if (currentTrack == 2)
+        {
+            Mix_PlayMusic(gameMusic2, 1);
+            currentTrack++;
+        }
+        else if (currentTrack == 3)
+        {
+            Mix_PlayMusic(gameMusic3, 1);
+            currentTrack++;
+        }
+        else if (currentTrack == 4)
+        {
+            Mix_PlayMusic(gameMusic4, 1);
+            currentTrack = 1;
+        }
+    }
 }
 
 void MusicPlayer::PlaySplat()

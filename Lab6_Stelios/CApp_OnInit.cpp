@@ -46,8 +46,7 @@ bool CApp::OnInit()
 	}
 
 	obj.StorePointers(&player, &music);
-
-	music.PlayMusic();
+	music.loadMedia();
 
 	return true;
 }
