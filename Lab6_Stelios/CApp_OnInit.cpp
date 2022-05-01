@@ -45,8 +45,19 @@ bool CApp::OnInit()
 		return false;
 	}
 
-	obj.StorePointers(&player, &music);
+	if (TTF_Init() < 0)
+	{
+		printf("SDL_ttf could not initialize! SDL_ttf Error: %s\n", TTF_GetError());
+		return false;
+	}
+
+	//Initializations
+	score.LoadFonts();
 	music.loadMedia();
+
+	//Passes and stored pointers
+	obj.StorePointers(&player, &music);
+	score.StorePlayerPointer(&player);
 
 	return true;
 }

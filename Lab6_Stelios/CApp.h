@@ -10,6 +10,7 @@
 #include "ObjectManager.h"
 #include "AssetManager.h"
 #include "MusicPlayer.h"
+#include "Score.h"
 
 using namespace std;
 
@@ -37,6 +38,7 @@ private:
 	Player player;
 	ObjectManager obj;
 	MusicPlayer music;
+	Score score;
 
 	SDL_Window* window;
 	SDL_Renderer* renderer;

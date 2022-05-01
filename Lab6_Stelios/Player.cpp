@@ -21,8 +21,6 @@ void Player::CheckBounds()
 	{
 		playerPosition.y = WINDOW_HEIGHT - ySize;
 	}
-
-	cout << playerPosition.x << "  " << playerPosition.y << endl;
 }
 
 void Player::MoveLeft()
