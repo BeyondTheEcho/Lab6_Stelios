@@ -1,5 +1,6 @@
 #pragma once
 #include "Car.h"
+#include "Log.h"
 #include <vector>
 
 using namespace std;
@@ -15,16 +16,24 @@ public:
 	int numCars = 9;
 	//Total cars spawned
 	int totalCars = 0;
+
+	//Number of logs to be spawned
+	int numLogs = 12;
+	//total logs to be spawned
+	int totalLogs = 0;
+
 	//Sleep Delay
 	int sleepDelay = 10;
 
-	//Array of all NPC Objects
+	//Array of all Car Objects
 	vector<Car*> cars;
+	//Array of all Log Objects
+	vector<Log*> logs;
 
 	ObjectManager();
-	void SpawnAllCars();
-	void RenderAllCars(SDL_Renderer* renderer);
-	void MoveAllCars();
-	void RecycleCars();
+	void SpawnAllObjects();
+	void RenderAllObjects(SDL_Renderer* renderer);
+	void MoveAllObjects();
+	void RecycleObjects();
 };
 

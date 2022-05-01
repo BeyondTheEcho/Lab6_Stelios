@@ -2,6 +2,6 @@
 
 void CApp::OnLoop()
 {
-	obj.MoveAllCars();
-	obj.RecycleCars();
+	obj.MoveAllObjects();
+	obj.RecycleObjects();
 }

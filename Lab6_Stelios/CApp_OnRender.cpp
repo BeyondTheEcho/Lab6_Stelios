@@ -10,7 +10,7 @@ void CApp::OnRender()
 	
 	player.Render(renderer);
 
-	obj.RenderAllCars(renderer);
+	obj.RenderAllObjects(renderer);
 
 	//obj.car1.Render(renderer);
 
