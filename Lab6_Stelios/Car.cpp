@@ -2,13 +2,25 @@
 
 Car::Car(int* totalCars)
 {
+	//Size of Sprite - Maintain Aspect Ratio
+	xSize = 105;
+	ySize = 49;
+
+	//Position To Be Spawned
+	xPos = 50;
+	yPos = 555;
+
+	//Car Spawn Variance
+	xOffset = 400;
+	yOffset = 55;
+
 	numCarsSpawned = totalCars;
 
 	//Randomizes car color on instantiation
 	RandomizeCarColor();
 
 	//Places cars appropriately as they are spawned
-	PlaceCars();
+	PlaceObjects(numCarsSpawned);
 }
 
 bool Car::LoadCarSprites(SDL_Renderer* renderer)
@@ -27,54 +39,6 @@ void Car::RandomizeCarColor()
 	temp++;
 	if (temp > GREEN) temp = BLUE;
 	ColorRotation = (Colors)temp;
-}
-
-void Car::PlaceCars()
-{
-	
-	if (*numCarsSpawned < 3)
-	{
-		//Places the first 3 cars at the standard y pos with x offset
-		for (int i = 0; i < *numCarsSpawned; i++)
-		{
-			CarPosition.x += xOffset;
-		}
-
-		xMovement = 2;
-	}
-	else if (*numCarsSpawned < 6)
-	{
-		//Places the next 3 cars at the modified ypos with the x offset
-		CarPosition.y -= yOffset;
-
-		for (int i = 3; i < *numCarsSpawned; i++)
-		{
-			CarPosition.x += xOffset;
-		}
-
-		xMovement = 4;
-
-	}
-	else if (*numCarsSpawned < 9)
-	{
-		//Places the final 3 cars at the modified ypos with the x offset
-		CarPosition.y -= yOffset * 2;
-
-		for (int i = 6; i < *numCarsSpawned; i++)
-		{
-			CarPosition.x += xOffset;
-		}
-
-		xMovement = 3;
-	}
-
-	//Increases the count of currently spawned cars
-	*numCarsSpawned = *numCarsSpawned + 1;
-}
-
-void Car::Move()
-{
-	CarPosition.x += xMovement;
 }
 
 void Car::Render(SDL_Renderer* renderer)
@@ -105,7 +69,8 @@ void Car::Render(SDL_Renderer* renderer)
 		break;
 	}
 
-	SDL_RenderCopy(renderer, thisTexture, nullptr, &CarPosition);
+	SDL_RenderCopy(renderer, thisTexture, nullptr, &Position);
+	cout << thisTexture << endl;
 }
 
 Car::Colors Car::ColorRotation = BLUE;

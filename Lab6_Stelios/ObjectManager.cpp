@@ -39,9 +39,9 @@ void ObjectManager::RecycleCars()
 
 	for (int i = 0; i < totalCars; i++)
 	{
-		if (cars[i]->CarPosition.x > WINDOW_WIDTH)
+		if (cars[i]->Position.x > WINDOW_WIDTH)
 		{
-			cars[i]->CarPosition.x = (WINDOW_WIDTH / WINDOW_WIDTH) - WINDOW_OFFSET;
+			cars[i]->Position.x = (WINDOW_WIDTH / WINDOW_WIDTH) - WINDOW_OFFSET;
 		}
 	}
 
