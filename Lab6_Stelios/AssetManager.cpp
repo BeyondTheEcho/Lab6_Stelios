@@ -1,6 +1,6 @@
 #include "AssetManager.h"
 
-string AssetManager::assetsFilePath = "./Assets/";
+string AssetManager::assetsFilePath = "./Assets/BMPs/";
 
 string AssetManager::frog_Up = "Frog_Up";
 string AssetManager::frog_Down = "Frog_Down";

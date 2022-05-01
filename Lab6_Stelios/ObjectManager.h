@@ -3,6 +3,7 @@
 #include "Log.h"
 #include <vector>
 #include "Player.h"
+#include "MusicPlayer.h"
 
 using namespace std;
 
@@ -14,6 +15,8 @@ class ObjectManager
 {
 public:
 	Player* player = nullptr;
+	MusicPlayer* music = nullptr;
+	
 
 	//Number of cars to spawn
 	int numCars = 9;
@@ -34,7 +37,7 @@ public:
 	vector<Log*> logs;
 
 	ObjectManager();
-	void StorePlayerPointer(Player* playerMain);
+	void StorePointers(Player* playerMain, MusicPlayer* musicptr);
 	void SpawnAllObjects();
 	void RenderAllObjects(SDL_Renderer* renderer);
 	void MoveAllObjects();

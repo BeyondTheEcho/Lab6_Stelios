@@ -5,9 +5,10 @@ ObjectManager::ObjectManager()
 	ObjectManager::SpawnAllObjects();
 }
 
-void ObjectManager::StorePlayerPointer(Player* playerMain)
+void ObjectManager::StorePointers(Player* playerMain, MusicPlayer* musicptr)
 {
 	player = playerMain;
+	music = musicptr;
 }
 
 void ObjectManager::SpawnAllObjects()
@@ -86,6 +87,7 @@ void ObjectManager::CheckAllCollisions()
 		if (CheckCollision(player->playerPosition, car->CarPosition))
 		{
 			player->ResetPlayerPos();
+			music->PlaySplat();
 		}
 	}
 }

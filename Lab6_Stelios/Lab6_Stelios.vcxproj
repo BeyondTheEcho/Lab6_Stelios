@@ -142,7 +142,9 @@
     <ClCompile Include="AssetManager.cpp" />
     <ClCompile Include="Car.cpp" />
     <ClCompile Include="Log.cpp" />
+    <ClCompile Include="MusicPlayer.cpp" />
     <ClCompile Include="ObjectManager.cpp" />
+    <ClCompile Include="Score.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="CApp_Main.cpp" />
     <ClCompile Include="CApp_OnCleanup.cpp" />
@@ -156,7 +158,9 @@
     <ClInclude Include="AssetManager.h" />
     <ClInclude Include="Car.h" />
     <ClInclude Include="Log.h" />
+    <ClInclude Include="MusicPlayer.h" />
     <ClInclude Include="ObjectManager.h" />
+    <ClInclude Include="Score.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="CApp.h" />
     <ClInclude Include="Player.h" />

@@ -9,6 +9,7 @@
 #include "Sprite.h"
 #include "ObjectManager.h"
 #include "AssetManager.h"
+#include "MusicPlayer.h"
 
 using namespace std;
 
@@ -34,8 +35,8 @@ private:
 	bool done = false;
 
 	Player player;
-
 	ObjectManager obj;
+	MusicPlayer music;
 
 	SDL_Window* window;
 	SDL_Renderer* renderer;
