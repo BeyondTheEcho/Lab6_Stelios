@@ -32,5 +32,7 @@ bool CApp::OnInit()
 		return false;
 	}
 
+	obj.StorePlayerPointer(&player);
+
 	return true;
 }

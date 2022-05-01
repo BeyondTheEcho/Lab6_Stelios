@@ -13,11 +13,15 @@ protected:
 	int ySize = 50;
 
 	//Frog Position Vars
-	int xPos = 0;
-	int yPos = 0;
+	int xPos = 670;
+	int yPos = 610;
 	
 	void CheckBounds();
 public:
+	//Frog Start Position
+	const int xStartPos = 670;
+	const int yStartPos = 610;
+
 	SDL_Texture* frog_Up;
 	SDL_Texture* frog_Down;
 	SDL_Texture* frog_Right;
@@ -29,6 +33,8 @@ public:
 	void MoveRight();
 	void MoveUp();
 	void MoveDown();
+
+	void ResetPlayerPos();
 
 	void RotateSprite(std::string);
 	bool LoadFrogSprites(SDL_Renderer* renderer);

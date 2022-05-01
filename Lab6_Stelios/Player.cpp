@@ -21,6 +21,8 @@ void Player::CheckBounds()
 	{
 		playerPosition.y = WINDOW_HEIGHT - ySize;
 	}
+
+	cout << playerPosition.x << "  " << playerPosition.y << endl;
 }
 
 void Player::MoveLeft()
@@ -49,6 +51,12 @@ void Player::MoveDown()
 	playerPosition.y += ySize;
 	dir = DOWN;
 	CheckBounds();
+}
+
+void Player::ResetPlayerPos()
+{
+	playerPosition.x = xStartPos;
+	playerPosition.y = yStartPos;
 }
 
 bool Player::LoadFrogSprites(SDL_Renderer* renderer)

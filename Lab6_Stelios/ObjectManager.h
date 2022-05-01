@@ -2,6 +2,7 @@
 #include "Car.h"
 #include "Log.h"
 #include <vector>
+#include "Player.h"
 
 using namespace std;
 
@@ -12,6 +13,8 @@ using namespace std;
 class ObjectManager
 {
 public:
+	Player* player = nullptr;
+
 	//Number of cars to spawn
 	int numCars = 9;
 	//Total cars spawned
@@ -31,9 +34,12 @@ public:
 	vector<Log*> logs;
 
 	ObjectManager();
+	void StorePlayerPointer(Player* playerMain);
 	void SpawnAllObjects();
 	void RenderAllObjects(SDL_Renderer* renderer);
 	void MoveAllObjects();
 	void RecycleObjects();
+	void CheckAllCollisions();
+	bool CheckCollision(SDL_Rect a, SDL_Rect b);
 };
 

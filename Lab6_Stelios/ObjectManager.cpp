@@ -5,6 +5,11 @@ ObjectManager::ObjectManager()
 	ObjectManager::SpawnAllObjects();
 }
 
+void ObjectManager::StorePlayerPointer(Player* playerMain)
+{
+	player = playerMain;
+}
+
 void ObjectManager::SpawnAllObjects()
 {
 	for(int i = 0; i < numCars; i++)
@@ -49,6 +54,8 @@ void ObjectManager::MoveAllObjects()
 	SDL_Delay(sleepDelay);
 }
 
+
+
 void ObjectManager::RecycleObjects()
 {
 	int totalCars = cars.size();
@@ -71,3 +78,60 @@ void ObjectManager::RecycleObjects()
 	}
 
 }
+
+void ObjectManager::CheckAllCollisions()
+{
+	for (auto car : cars)
+	{
+		if (CheckCollision(player->playerPosition, car->CarPosition))
+		{
+			player->ResetPlayerPos();
+		}
+	}
+}
+
+bool ObjectManager::CheckCollision(SDL_Rect a, SDL_Rect b)
+{
+	//The sides of the rectangles
+	int leftA, leftB;
+	int rightA, rightB;
+	int topA, topB;
+	int bottomA, bottomB;
+
+	//Calculate the sides of rect A
+	leftA = a.x;
+	rightA = a.x + a.w;
+	topA = a.y;
+	bottomA = a.y + a.h;
+
+	//Calculate the sides of rect B
+	leftB = b.x;
+	rightB = b.x + b.w;
+	topB = b.y;
+	bottomB = b.y + b.h;
+
+	//If any of the sides from A are outside of B
+	if (bottomA <= topB)
+	{
+		return false;
+	}
+
+	if (topA >= bottomB)
+	{
+		return false;
+	}
+
+	if (rightA <= leftB)
+	{
+		return false;
+	}
+
+	if (leftA >= rightB)
+	{
+		return false;
+	}
+
+	//If none of the sides from A are outside B
+	return true;
+}
+
