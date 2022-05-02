@@ -2,7 +2,7 @@
 
 bool CApp::OnInit()
 {
-	window = SDL_CreateWindow("Frogger - Lab 6 - Stelios",
+	window = SDL_CreateWindow("Frogger - The Challenges of Frog Life",
 		SDL_WINDOWPOS_UNDEFINED,
 		SDL_WINDOWPOS_UNDEFINED,
 		WINDOW_WIDTH, WINDOW_HEIGHT,
